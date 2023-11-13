@@ -18,8 +18,4 @@ public class HotDrink extends Product {
                 " , volume: " + volume +
                 " , temperature: " + temperature;
     }
-
-
-
-
 }
