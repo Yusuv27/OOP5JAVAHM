@@ -1,0 +1,171 @@
+Subject: [PATCH] Seminar_2
+---
+Index: src/main/java/OOPNext/HotDrink.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/OOPNext/HotDrink.java b/src/main/java/OOPNext/HotDrink.java
+--- a/src/main/java/OOPNext/HotDrink.java	(revision 6e3b3fb95d9c78b286cdc6422e9c341f99966d2e)
++++ b/src/main/java/OOPNext/HotDrink.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -18,8 +18,4 @@
+                 " , volume: " + volume +
+                 " , temperature: " + temperature;
+     }
+-
+-
+-
+-
+ }
+Index: src/main/java/Seminar_2/Animal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Seminar_2/Animal.java b/src/main/java/Seminar_2/Animal.java
+new file mode 100644
+--- /dev/null	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
++++ b/src/main/java/Seminar_2/Animal.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -0,0 +1,12 @@
++package Seminar_2;
++
++public abstract class Animal implements Zoo, AnimalBehaivour{
++    protected String name;
++    public String getName(){
++        return name;
++    }
++    public void setName(String name){
++        this.name = name;
++    }
++    abstract void voice();
++}
+Index: src/main/java/Seminar_2/AnimalBehaivour.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Seminar_2/AnimalBehaivour.java b/src/main/java/Seminar_2/AnimalBehaivour.java
+new file mode 100644
+--- /dev/null	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
++++ b/src/main/java/Seminar_2/AnimalBehaivour.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -0,0 +1,5 @@
++package Seminar_2;
++
++public interface AnimalBehaivour {
++    void info();
++}
+Index: src/main/java/Seminar_2/Capybara.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Seminar_2/Capybara.java b/src/main/java/Seminar_2/Capybara.java
+new file mode 100644
+--- /dev/null	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
++++ b/src/main/java/Seminar_2/Capybara.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -0,0 +1,24 @@
++package Seminar_2;
++
++public class Capybara extends  Animal{
++
++    @Override
++    public void feed() {
++        System.out.println("capybara has been feeded");
++    }
++
++    @Override
++    public void clean() {
++        System.out.println("capybara has been cleaned");
++    }
++
++    @Override
++    void voice() {
++        System.out.println("capybara noises");
++    }
++
++    @Override
++    public void info() {
++        System.out.println("i caaapyyybara");
++    }
++}
+Index: src/main/java/Seminar_2/Frog.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Seminar_2/Frog.java b/src/main/java/Seminar_2/Frog.java
+new file mode 100644
+--- /dev/null	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
++++ b/src/main/java/Seminar_2/Frog.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -0,0 +1,22 @@
++package Seminar_2;
++
++public class Frog extends Animal{
++    @Override
++    public void feed() {
++        System.out.println("frog has been feeded");
++    }
++
++    @Override
++    public void clean() {
++        System.out.println("frog has been cleaned");
++    }
++    @Override
++    void voice() {
++        System.out.println("Kva-Kva");
++    }
++
++    @Override
++    public void info() {
++        System.out.println("frog ");
++    }
++}
+Index: src/main/java/Seminar_2/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Seminar_2/Main.java b/src/main/java/Seminar_2/Main.java
+new file mode 100644
+--- /dev/null	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
++++ b/src/main/java/Seminar_2/Main.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -0,0 +1,23 @@
++package Seminar_2;
++
++public class Main {
++    public static void main (String[] args) {
++        Animal frog = new Frog();
++        Animal capy = new Capybara();
++    frog.voice();
++    capy.voice();
++    frog.getName();
++    frog.setName("frog1");
++    capy.setName("capy1");
++        System.out.println(capy.getName());
++        System.out.println(frog.getName());
++
++        System.out.println();
++        capy.feed();
++        capy.clean();
++        frog.feed();
++        frog.clean();
++        frog.info();
++        capy.info();
++    }
++}
+Index: src/main/java/Seminar_2/Zoo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Seminar_2/Zoo.java b/src/main/java/Seminar_2/Zoo.java
+new file mode 100644
+--- /dev/null	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
++++ b/src/main/java/Seminar_2/Zoo.java	(revision 24b115030366b7e204aaf79f0f4e7eb1a9c82f20)
+@@ -0,0 +1,6 @@
++package Seminar_2;
++
++public interface Zoo {
++    void feed();
++    void clean();
++}
